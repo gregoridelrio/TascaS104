@@ -1,8 +1,8 @@
 <?php
 class Empleat
 {
-  private $nom;
-  private $sou;
+  private string $nom;
+  private string $sou;
 
   public function __construct(string $nom, int $sou)
   {
