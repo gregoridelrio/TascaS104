@@ -1,11 +1,12 @@
 <?php
 require_once 'PokerDice.php';
+
 class PokerFiveDice
 {
   private array $values;
   private int $rolls = 0;
 
-  public function roll()
+  public function roll(): void
   {
     $this->values = [];
     for ($i = 0; $i < 5; $i++) {
@@ -16,21 +17,13 @@ class PokerFiveDice
     $this->rolls++;
   }
 
-  public function getValues()
+  public function getValues(): array
   {
     return $this->values;
   }
 
-  public function getRolls()
+  public function getRolls(): int
   {
     return $this->rolls;
   }
 }
-
-$fiveDice = new PokerFiveDice();
-$fiveDice->roll();
-$fiveDice->roll();
-$fiveDice->roll();
-$fiveDice->roll();
-echo "Valors dels cinc daus: " . implode(', ', $fiveDice->getValues()) . "\n";
-echo "Nombre de tirades: " . $fiveDice->getRolls();
