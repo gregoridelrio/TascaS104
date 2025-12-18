@@ -1,5 +1,5 @@
 <?php
-require_once "Cinema.php";
+require_once "Cinemes.php";
 
 $cinema1 = new Cinema("Cinema Girona", "Girona");
 $cinema2 = new Cinema("Cinema Barcelona", "Barcelona");
@@ -20,8 +20,12 @@ $cinema2->afegirPelicula($pelicula3);
 $cinema2->afegirPelicula($pelicula4);
 $cinema2->afegirPelicula($pelicula5);
 
-echo $cinema1->buscarDirector("Coppola", [$cinema1, $cinema2]) . "<br>";
-
 echo $cinema1->mostrarPelicules() . "<br>";
 
 echo $cinema1->mostrarPeliculaMesLlarga() . "<br>";
+
+$cinemes = new Cinemes();
+$cinemes->afegirCine($cinema1);
+$cinemes->afegirCine($cinema2);
+
+echo $cinemes->buscarDirector("Coppola");

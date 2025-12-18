@@ -12,6 +12,11 @@ class Cinema
     $this->poblacio = $poblacio;
   }
 
+  public function getPelicules(): array
+  {
+    return $this->pelicules;
+  }
+
   public function afegirPelicula(Pelicula $pelicula): void
   {
     $this->pelicules[] = $pelicula;
@@ -35,18 +40,5 @@ class Cinema
       }
     }
     echo $peliculaMesLLarga;
-  }
-
-  public function buscarDirector(string $nomDirector, array $cinemas): void
-  {
-    $nomPeliTrobada = [];
-    foreach ($cinemas as $cinema) {
-      foreach ($cinema->pelicules as $pelicula) {
-        if ($pelicula->getDirector() == $nomDirector && !in_array($pelicula->getNom(), $nomPeliTrobada)) {
-          echo $pelicula;
-          $nomPeliTrobada[] = $pelicula->getNom();
-        }
-      }
-    }
   }
 }
