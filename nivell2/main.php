@@ -14,5 +14,5 @@ echo "Nombre de tirades: " . $dicesMultiple->getRolls() . "\n";
 
 $dicesResult = $dicesMultiple->getValues();
 foreach ($dicesResult as $dice) {
-  echo $dice . " ";
+  echo $dice->getValue() . " ";
 }
