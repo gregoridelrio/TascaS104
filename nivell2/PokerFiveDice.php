@@ -3,23 +3,28 @@ require_once 'PokerDice.php';
 
 class PokerFiveDice
 {
-  private array $values;
+  private array $dice = [];
   private int $rolls = 0;
+
+  public function __construct()
+  {
+    for ($i = 0; $i < 5; $i++) {
+      $dice = new PokerDice();
+      $this->dice[] = $dice;
+    }
+  }
 
   public function roll(): void
   {
-    $this->values = [];
-    for ($i = 0; $i < 5; $i++) {
-      $dice = new PokerDice();
+    foreach ($this->dice as $dice) {
       $dice->roll();
-      $this->values[] = $dice->getValue();
     }
     $this->rolls++;
   }
 
   public function getValues(): array
   {
-    return $this->values;
+    return $this->dice;
   }
 
   public function getRolls(): int
